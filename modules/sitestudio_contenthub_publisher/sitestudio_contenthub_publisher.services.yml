@@ -1,0 +1,32 @@
+services:
+  sitestudio_contenthub_publisher.dependency_calculator:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\DependencyCollector\SitestudioEntityReferenceFieldDependencyCollector
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_publisher.json_value.dependency_calculator:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\DependencyCollector\SitestudioLayoutCanvasDependencyCollector
+    arguments: [ '@entity_type.manager']
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_publisher.remove_config_entities:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\PrunePublishCdfEntities\RemoveConfigEntities
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_publisher.is_not_cohesion_config:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\EnqueueEligibility\IsNotCohesionConfig
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_publisher.is_not_cohesion_layout:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\EnqueueEligibility\IsNotCohesionLayout
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_publisher.cohesion_entity_reference_field.serializer:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\SerializeContentField\SitestudioEntityReferenceFieldSerializer
+    arguments: [ '@entity_type.manager' ]
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_publisher.cohesion_layout_canvas.serializer:
+    class: Drupal\sitestudio_contenthub_publisher\EventSubscriber\Cdf\CohesionLayoutSerializationHandler
+    arguments: [ '@entity_type.manager' ]
+    tags:
+      - { name: event_subscriber }
