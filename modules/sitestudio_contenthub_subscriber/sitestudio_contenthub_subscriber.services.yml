@@ -1,0 +1,11 @@
+services:
+  sitestudio_contenthub_subscriber.layout_canvas.unserializer:
+    class: Drupal\sitestudio_contenthub_subscriber\EventSubscriber\UnserializeContentField\SitestudioEntityReferenceFieldUnserializer
+    arguments: [ '@entity_type.manager' ]
+    tags:
+      - { name: event_subscriber }
+  sitestudio_contenthub_subscriber.cohesion_layout_canvas.unserializer:
+    class: Drupal\sitestudio_contenthub_subscriber\EventSubscriber\Cdf\CohesionLayoutUnserializationHandler
+    arguments: [ '@entity_type.manager' ]
+    tags:
+      - { name: event_subscriber }
