@@ -1,5 +1,5 @@
 {
-    "name": "acquia/sitestudio_contenthub",
+    "name": "vaibhav-acquia/sitestudio_contenthub",
     "type": "drupal-module",
     "description": "Adds Site Studio support for Acquia ContentHub.",
     "license": "GPL-2.0-or-later",
