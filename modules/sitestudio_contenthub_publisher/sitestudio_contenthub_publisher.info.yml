@@ -1,7 +1,7 @@
 name: Site Studio Content Hub Publisher
 type: module
 description: 'Adds Site Studio support for Acquia Content Hub Publisher.'
-core_version_requirement: ^8.8.0 || ^9
+core_version_requirement: ^8.8.0 || ^9 || ^10
 package: Site Studio
 dependencies:
   - cohesion
